@@ -1,5 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+
+import { connectDB, sequelize } from "./config/db.js";
+import userRoutes from "./routes/userRoutes.js";
 
 
 dotenv.config();
@@ -7,7 +12,17 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
+// Middleware
+app.use(cors({
+  origin: "http://localhost:3000", // your frontend URL
+  credentials: true              // allow cookies
+}));
 app.use(express.json());
+app.use(cookieParser());
+
+// Routes
+app.use("/api/users", userRoutes);
+
 
 
 // Test route
@@ -15,9 +30,11 @@ app.get("/", (req, res) => {
   res.send("Backend running!");
 });
 
-// start server
+// Sync database and start server
 const startServer = async () => {
   try {
+    await connectDB();
+    await sequelize.sync({ alter: true }); // Auto-sync tables
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   } catch (err) {
     console.error("Failed to start server:", err);

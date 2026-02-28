@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "server of mcm",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,9 +18,10 @@
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.18.2",
-    "sequelize": "^6.37.7"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "pg": "^8.19.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7",
+    "slugify": "^1.6.6"
   }
 }
