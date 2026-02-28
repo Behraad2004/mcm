@@ -28,10 +28,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/coupons", couponRoutes);
 
-
-
-
-
 // Test route
 app.get("/", (req, res) => {
   res.send("Backend running!");
