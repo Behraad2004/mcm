@@ -7,6 +7,7 @@ import { connectDB, sequelize } from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js" 
 import productRoutes from "./routes/productRoutes.js";
+import productCategoryRoutes from "./routes/productCategoryRoutes.js";
 
 
 
@@ -27,6 +28,8 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/categories", productCategoryRoutes);
+
 
 
 
