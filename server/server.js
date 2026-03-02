@@ -10,6 +10,7 @@ import productRoutes from "./routes/productRoutes.js";
 import productCategoryRoutes from "./routes/productCategoryRoutes.js";
 import couponRoutes from "./routes/couponRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import feedbackRoutes from "./routes/feedbackRoutes.js";
 
 
 
@@ -33,6 +34,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/categories", productCategoryRoutes);
 app.use("/api/coupons", couponRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/feedback",feedbackRoutes);
 
 
 
